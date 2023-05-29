@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ML Predictor</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+  </head>
+  <body>
+    <h1>ML Predictor</h1>
+    <div class="container">
+      <form
+        action="{{ url_for('predict') }}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <label for="csv-file">Upload CSV file:</label>
+        <input
+          type="file"
+          accept=".csv"
+          id="csv-file"
+          name="csv-file"
+          required
+        />
+        <label for="time-period">Select time period:</label>
+        <select id="time-period" name="time-period" required>
+          <option value="Days">Days</option>
+          <option value="Weeks">Weeks</option>
+          <option value="Months">Months</option>
+          <option value="Years">Years</option>
+        </select>
+        <label for="time-value">Enter time value:</label>
+        <input type="number" id="time-value" name="time-value" required />
+        <input type="submit" value="Predict" />
+      </form>
+    </div>
+  </body>
+</html>

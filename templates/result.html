@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ML Predictor Results</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+  </head>
+  <body>
+    <h1>ML Predictor Results</h1>
+    <div class="container">
+      {% if predicted_prices is defined %}
+      <p>The predicted value is:</p>
+      <p>{{ predicted_prices }}</p>
+      <img src="{{ url_for('plot') }}" alt="Fuel Prices Graph" />
+      {% else %}
+      <p>There was an error processing your request. Please try again.</p>
+      {% endif %}
+    <div>
+      <a href="{{ url_for('index') }}">Go back to the predictor page</a>
+  </body>
+</html>
